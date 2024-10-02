@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-size: cover;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#__next {
+  height: 100%;
+  width: 100%;
+}
+#__next > div {
+  height: 100%;
+  width: 100%;
+}
+
+.no-select,
+img {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  -webkit-touch-callout: none !important;
+
+  /* Disable dragging */
+  user-drag: none !important;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+.header-container {
+  width: 100%;
+  height: 245px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  background: linear-gradient(rgba(248, 248, 248, 0), rgb(248, 248, 248)),
+    linear-gradient(
+      160deg,
+      rgb(255, 255, 255) -40%,
+      rgb(106, 156, 216) 45%,
+      rgb(11, 79, 82) 120%
+    ),
+    radial-gradient(
+      circle,
+      rgb(243, 247, 252) 0%,
+      rgb(222, 233, 246) 50%,
+      rgb(183, 180, 245) 160%
+    );
+}
+
+.bg-main-container {
+  background-color: rgb(248, 248, 248);
+}
+
+.header-title {
+  color: black;
+}
+.padding-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.family {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+}
+
+.user-card {
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  display: flex;
+  overflow: hidden auto;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0.6px 0.54px -1.33px,
+    rgba(0, 0, 0, 0.13) 0px 2.29px 2.06px -2.67px,
+    rgba(0, 0, 0, 0.04) 0px 10px 9px -4px;
+  padding: 25px 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.footer-section {
+  display: flex;
+  border-radius: 26px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgb(227, 227, 227);
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 0.602187px 1.56569px -0.75px,
+    rgba(0, 0, 0, 0.094) 0px 2.28853px 5.95019px -1.5px,
+    rgba(0, 0, 0, 0.11) 0px 10px 26px -2.25px;
+  backdrop-filter: blur(20px);
+  transition-delay: 0ms;
+}
+
+.second-header {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0.48px 2.41px -0.38px,
+    rgba(0, 0, 0, 0.17) 0px 4px 20px -0.75px;
+}
+.chat-message {
+  display: inline-block;
+  max-width: 280px;
+  margin-bottom: 0.1em;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0.6px 0.54px -1.33px,
+    rgba(0, 0, 0, 0.13) 0px 2.29px 2.06px -2.67px,
+    rgba(0, 0, 0, 0.04) 0px 10px 9px -4px;
+  border: 0px;
+  color: rgb(17, 17, 17);
+  border-radius: 10px;
+  padding: 12px 18px 14px;
+}
+.custom-textarea {
+  resize: none;
+}
+.custom-textarea::-webkit-scrollbar {
+  width: 10px;
+}
+
+.custom-textarea::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  margin-left: 20px;
+  border-radius: 10px;
+}
+
+.custom-textarea::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+
+.custom-textarea::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.dots {
+  display: flex;
+  justify-content: space-around; /* Ensures even spacing */
+  position: absolute;
+  top: 40%; /* Adjust position inside the icon */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px; /* Even smaller width to reduce space */
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  background-color: #0047ab;
+  border-radius: 50%;
+  animation: vibrate 1s infinite ease-in-out both;
+}
+
+/* Vibrate Animation Keyframes */
+@keyframes vibrate {
+  0%,
+  100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  20% {
+    transform: translateY(-4px) scale(1.05) rotate(-1deg);
+  }
+  40% {
+    transform: translateY(4px) scale(0.95) rotate(1deg);
+  }
+  60% {
+    transform: translateY(-0.5px) scale(1.05) rotate(-1deg);
+  }
+  80% {
+    transform: translateY(0.5px) scale(0.95) rotate(1deg);
+  }
+}
+
+/* Staggering the dots' animation */
+.dot:nth-child(1) {
+  animation-delay: -0.16s;
+}
+.dot:nth-child(2) {
+  animation-delay: -0.08s;
+}
+.dot:nth-child(3) {
+  animation-delay: 0s;
+}
+
+/* ThreeDotsLoader.css */
+
+/* ModernThreeDotsLoader.css */
+
+.modern-three-dots-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modern-three-dots-loader .dot-main {
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: rgba(0, 0, 255, 0.747);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: modernBounce 1.4s infinite ease-in-out;
+  transition: background-color 0.3s ease;
+}
+
+.modern-three-dots-loader .dot-main:hover {
+  background-color: rgba(0, 0, 255, 0.747);
+}
+
+.modern-three-dots-loader .dot-main:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.modern-three-dots-loader .dot-main:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes modernBounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+    opacity: 0.7;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
