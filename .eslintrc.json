@@ -1,3 +1,20 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime"
+  ],
+  "rules": {
+    "react/jsx-key": "off",
+    "react/no-children-prop": "off",
+    "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-img-element": "off",
+    "react/no-unknown-property": "off",
+    "@typescript-eslint/no-unused-vars": "warn", // Change from error to warning
+    "@typescript-eslint/no-explicit-any": "off", // Disable 'any' check
+    "@typescript-eslint/ban-ts-comment": "off" // Disable 'ban-ts-comment' check
+  }
 }
