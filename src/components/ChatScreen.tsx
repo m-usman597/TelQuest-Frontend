@@ -34,7 +34,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({
   const [isLoading, setIsLoading] = useState(false);
 
   const sessionIdRef = useRef<string>("");
-
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -71,6 +71,9 @@ const ChatScreen: React.FC<ChatScreenProps> = ({
       setMessages((prevMessages) => [...prevMessages, userMessage]);
 
       setText("");
+      if (textareaRef.current) {
+        textareaRef.current.style.height = "47px"; // Reset the textarea height
+      }
 
       const tempBotMessage: Message = {
         id: Date.now() + 1,
@@ -288,6 +291,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({
           } focus-within:border-blue-500`}
         >
           <textarea
+            ref={textareaRef}
             className="flex-grow resize-none w-full px-4 py-[10px] overflow-y-auto rounded-[18px] outline-none custom-textarea"
             placeholder="Type your message..."
             value={text}
@@ -302,7 +306,11 @@ const ChatScreen: React.FC<ChatScreenProps> = ({
           <div className="flex items-end justify-end h-full ml-2">
             {isLoading ? (
               <button
-                className={`py-[8px] px-[8px] rounded-[12px] flex items-center justify-center transition-colors duration-200 mr-[10px] bg-blue-500 hover:bg-blue-600 text-white cursor-not-allowed`}
+                className={`py-[8px] px-[8px] rounded-[12px] flex ${
+                  text.trim().length == 100
+                    ? "items-end justify-end"
+                    : "items-center justify-center"
+                }    transition-colors duration-200 mr-[10px] bg-blue-500 hover:bg-blue-600 text-white cursor-not-allowed`}
                 aria-label="Send Message"
               >
                 <svg
