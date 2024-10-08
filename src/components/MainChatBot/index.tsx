@@ -268,6 +268,7 @@ const ChatBotMain = () => {
               } focus-within:border-blue-500`}
             >
               <textarea
+                disabled={isLoading ? true : false}
                 ref={textareaRef}
                 className="flex-grow resize-none w-full px-4 py-2.5 overflow-y-auto rounded-lg outline-none bg-transparent text-gray-800 dark:text-gray-100"
                 placeholder="Type your message..."
