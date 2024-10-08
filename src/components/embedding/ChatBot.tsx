@@ -4,6 +4,7 @@ import StartScreen from "./StartScreen";
 import ChatScreen from "./ChatScreen";
 import { FaRegMessage, FaMessage } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import { sanitizeResponse } from "../../utils/regex";
 
 interface Message {
   id: number;
@@ -12,14 +13,16 @@ interface Message {
   isLoading?: boolean;
 }
 
-const Chatbot = () => {
+const EmbeddingChatBot = () => {
   const [screen, setScreen] = useState<1 | 2>(1);
   const [show, setShow] = useState<boolean>(false);
   const [hover, setHover] = useState<boolean>(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "Hello, I’m Bob and I can help you with anything….",
+      text: sanitizeResponse(
+        "Hello, I’m Bob and I can help you with anything…."
+      ),
       sender: "bot",
     },
   ]);
@@ -47,7 +50,7 @@ const Chatbot = () => {
     >
       {show && (
         <motion.div
-          className="bg-main-container rounded-lg shadow-lg w-full max-w-[360px] h-[690px] relative overflow-hidden"
+          className="bg-main-container rounded-lg shadow-lg w-full max-w-[380px] h-[690px] relative overflow-hidden"
           initial={{ opacity: 0, y: 100, x: -20 }}
           animate={{ opacity: 1, y: 0, x: 0 }}
           exit={{ opacity: 0, y: 100 }}
@@ -98,4 +101,4 @@ const Chatbot = () => {
   );
 };
 
-export default Chatbot;
+export default EmbeddingChatBot;

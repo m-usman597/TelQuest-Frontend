@@ -4,10 +4,11 @@ import { MdArrowBack, MdSend } from "react-icons/md";
 import { Tooltip } from "antd";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
-import { apiUrl } from "./config";
-import ThreeDotsLoader from "./Loader";
+import { apiUrl } from "../../utils/config";
+import ThreeDotsLoader from "../MicroComponents/Loader";
 import { v4 as uuidv4 } from "uuid";
-import ShowResponse from "./Response";
+import ShowResponse from "../MicroComponents/Response";
+import { sanitizeResponse } from "../../utils/regex";
 
 interface Message {
   id: number;
@@ -176,9 +177,9 @@ const ChatScreen: React.FC<ChatScreenProps> = ({
               >
                 <div className="relative">
                   <img
-                    src="/assets/bot.png"
+                    src="/assets/bob.png"
                     alt="Bot Photo"
-                    className="w-[30px] h-[30px] rounded-full"
+                    className="w-[30px] h-[30px] rounded-full object-cover"
                   />
                   <span className="absolute top-[0px] right-0 left-0 block w-[8px] h-[8px] bg-[#268750] rounded-full ring-2 ring-white"></span>
                 </div>
@@ -227,9 +228,9 @@ const ChatScreen: React.FC<ChatScreenProps> = ({
             >
               <div className="relative">
                 <img
-                  src="/assets/bot.png"
+                  src="/assets/bob.png"
                   alt="Bot Photo"
-                  className="w-[56px] h-[56px] rounded-full"
+                  className="w-[56px] h-[56px] rounded-full object-cover"
                 />
                 <span className="absolute top-[8px] right-0 left-0 block w-[8px] h-[8px] bg-[#268750] rounded-full ring-2 ring-white"></span>
               </div>
@@ -254,9 +255,9 @@ const ChatScreen: React.FC<ChatScreenProps> = ({
           >
             {message.sender !== "user" && (
               <img
-                src="/assets/bot.png"
+                src="/assets/bob.png"
                 alt="Bot Photo"
-                className="w-[20px] h-[20px] rounded-full mr-2"
+                className="w-[30px] h-[30px] rounded-full mr-2 object-cover"
               />
             )}
             <div className="flex flex-col">
@@ -271,7 +272,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({
                   <ThreeDotsLoader />
                 ) : (
                   <ShowResponse
-                    response={message.text}
+                    response={sanitizeResponse(message.text)}
                     className={`!whitespace-pre-wrap !break-words ${
                       message.sender === "user" ? "text-white" : "text-black"
                     }`}

@@ -76,9 +76,9 @@ const StartScreen: React.FC<StartScreenProps> = ({
             <div className="flex items-center ml-[8px]">
               <div className="relative">
                 <img
-                  src="/assets/bot.png"
+                  src="/assets/bob.png"
                   alt="User Photo"
-                  className="w-10 h-10 rounded-full"
+                  className="w-10 h-10 rounded-full object-cover"
                 />
                 <span className="absolute top-[2px] right-0 left-0 block w-[8px] h-[8px] bg-[#268750] rounded-full ring-2 ring-white"></span>
               </div>
@@ -100,7 +100,7 @@ const StartScreen: React.FC<StartScreenProps> = ({
           >
             Chat now
             <Image
-              className="mt-[3px]"
+              className="mt-[3px] "
               src={"/assets/chat-send.svg"}
               alt="send"
               width={20}
