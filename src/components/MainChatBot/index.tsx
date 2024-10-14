@@ -101,12 +101,21 @@ const ChatBotMain = () => {
         });
 
         const data = response.data;
+        console.log("🚀 ~ handleSend ~ data:", data);
 
         let botResponse: Message;
-        if (data && data.response) {
+        if (data && data.response && data.response.length > 0) {
+          // Extract the 'value' field from each response object
+          const values = data.response
+            .filter((item: any) => item.text && item.text.value)
+            .map((item: any) => item.text.value);
+
+          // Combine all the values into a single string (if there are multiple)
+          const combinedValue = values.join(" ");
+
           botResponse = {
             id: tempBotMessage.id,
-            text: data.response,
+            text: combinedValue,
             sender: "bot",
           };
         } else {
@@ -116,6 +125,7 @@ const ChatBotMain = () => {
             sender: "bot",
           };
         }
+
         setMessages((prevMessages) =>
           prevMessages.map((msg) =>
             msg.id === tempBotMessage.id ? botResponse : msg
