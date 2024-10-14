@@ -87,9 +87,9 @@ const EmbeddingChatBot = () => {
               <FaMessage className="text-white font-semibold text-[25px] relative" />
               {/* Render dots on hover inside the icon */}
               <span className="dots absolute top-2 right-2 flex space-x-1">
-                <span className="dot bg-blue-500 rounded-full w-1.5 h-1.5"></span>
-                <span className="dot bg-blue-500 rounded-full w-1.5 h-1.5"></span>
-                <span className="dot bg-blue-500 rounded-full w-1.5 h-1.5"></span>
+                <span className="dot"></span>
+                <span className="dot"></span>
+                <span className="dot"></span>
               </span>
             </div>
           ) : (

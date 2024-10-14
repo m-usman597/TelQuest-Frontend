@@ -151,18 +151,18 @@ img {
   display: flex;
   justify-content: space-around; /* Ensures even spacing */
   position: absolute;
-  top: 40%; /* Adjust position inside the icon */
+  top: 50%; /* Adjust position inside the icon */
   left: 50%;
   transform: translate(-50%, -50%);
   width: 18px; /* Even smaller width to reduce space */
 }
 
 .dot {
-  width: 4px;
-  height: 4px;
-  background-color: #0047ab;
-  border-radius: 50%;
-  animation: vibrate 1s infinite ease-in-out both;
+  width: 4px !important;
+  height: 4px !important;
+  background-color: #0047ab !important;
+  border-radius: 50% !important;
+  animation: vibrate 2s infinite ease-in-out both !important;
 }
 
 /* Vibrate Animation Keyframes */
