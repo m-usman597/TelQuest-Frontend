@@ -262,7 +262,7 @@ img {
   border: none; /* Clean look */
   color: inherit; /* Inherit text color based on theme */
   border-radius: 12px; /* Softer look */
-  padding: 16px 20px; /* Enhanced padding */
+  padding: 10px 20px; /* Enhanced padding */
   transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
   word-break: break-word; /* Ensure words break properly */
 }

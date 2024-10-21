@@ -275,7 +275,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({
                     : "bg-[#FFF]"
                 }`}
               >
-                {message.sender === "bot" && message.isLoading ? (
+                {/* {message.sender === "bot" && message.isLoading ? (
                   <ThreeDotsLoader />
                 ) : (
                   <ShowResponse
@@ -284,6 +284,16 @@ const ChatScreen: React.FC<ChatScreenProps> = ({
                       message.sender === "user" ? "text-white" : "text-black"
                     }`}
                   />
+                )} */}
+                {message.sender === "bot" && message.isLoading ? (
+                  <ThreeDotsLoader />
+                ) : message.sender === "bot" ? (
+                  <ShowResponse
+                    response={sanitizeResponse(message.text)}
+                    className="markdown-content dark:text-gray-100"
+                  />
+                ) : (
+                  <p className="text-base text-white">{message.text}</p>
                 )}
               </div>
             </div>
